@@ -5,11 +5,15 @@
  */
 package sortalgorithms;
 
+import java.security.SecureRandom;
+
 /**
  *
  * @author ^_^
  */
 public class Evaluator {
+
+    public static final int arrayReturnSize = 100000;
 
     public static void selectionSortBradford(int[] data) {
         int smallest;
@@ -42,7 +46,7 @@ public class Evaluator {
     }
 
     public static void mergeSortBradford(int[] data) {
-
+        sortArrayBradford(data, 0, data.length - 1);
     }
 
     public static void sortArrayBradford(int[] data, int low, int high) {
@@ -102,16 +106,46 @@ public class Evaluator {
         data[second] = temp;
     }
 
-    public static void genSequential() {
+    /**
+     * @return an array with 100,000 int values in sequential order, starting
+     * with 1 and ending with 100,000.
+     */
+    public static int[] genSequential() {
+        int[] data = new int[arrayReturnSize];// create array
 
+        //populate array
+        for (int i = 1; i <= arrayReturnSize; i++) {
+            data[i] = i;
+        }
+        return data;
     }
 
-    public static void genRandom() {
+    /**
+     * @return an array with 100,000 random int values.
+     */
+    public static int[] genRandom() {
+        SecureRandom generator = new SecureRandom();
+        int[] data = new int[arrayReturnSize];// create array
 
+        //populate array
+        for (int i = 1; i <= arrayReturnSize; i++) {
+            data[i] = generator.nextInt(arrayReturnSize);
+        }
+
+        return data;
     }
 
-    public static void genDescendingSequential() {
-
+    /**
+     * @return an array with 100,000 int values in descending sequential order,
+     * starting with 100,000 and ending with 1.
+     */
+    public static int[] genDescendingSequential() {
+        int[] data = new int[arrayReturnSize];// create array
+        //populate array
+        for (int i = arrayReturnSize; i >= 1; i--) {
+            data[i] = i;
+        }
+        return data;
     }
 
 }
