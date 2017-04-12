@@ -11,8 +11,18 @@ package sortalgorithms;
  */
 public class Evaluator {
 
-    public static int selectionSortBradford() {
-        return -1;
+    public static void selectionSortBradford(int[] data) {
+        int smallest;
+        for (int i = 0; i < data.length - 1; i++) {
+            smallest = i;
+
+            for (int index = i + 1; index < data.length - 1; index++) {
+                if (data[index] < data[smallest]) {
+                    smallest = index;
+                }
+            }
+            swap(data, i, smallest);
+        }
     }
 
     public static int insertionSortBradford() {
@@ -28,4 +38,5 @@ public class Evaluator {
         data[first] = data[second];
         data[second] = temp;
     }
+
 }
