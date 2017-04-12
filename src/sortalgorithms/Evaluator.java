@@ -22,4 +22,10 @@ public class Evaluator {
     public static int mergeSortBradford() {
         return -1;
     }
+
+    public static void swap(int[] data, int first, int second) {
+        int temp = data[first];
+        data[first] = data[second];
+        data[second] = temp;
+    }
 }
