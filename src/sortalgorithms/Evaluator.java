@@ -114,8 +114,8 @@ public class Evaluator {
         int[] data = new int[arrayReturnSize];// create array
 
         //populate array
-        for (int i = 1; i <= arrayReturnSize; i++) {
-            data[i] = i;
+        for (int i = 0; i < arrayReturnSize; i++) {
+            data[i] = i + 1;
         }
         return data;
     }
@@ -128,8 +128,8 @@ public class Evaluator {
         int[] data = new int[arrayReturnSize];// create array
 
         //populate array
-        for (int i = 1; i <= arrayReturnSize; i++) {
-            data[i] = generator.nextInt(arrayReturnSize);
+        for (int i = 0; i < arrayReturnSize; i++) {
+            data[i] = 1 + generator.nextInt(arrayReturnSize - 1);
         }
 
         return data;
@@ -142,8 +142,8 @@ public class Evaluator {
     public static int[] genDescendingSequential() {
         int[] data = new int[arrayReturnSize];// create array
         //populate array
-        for (int i = arrayReturnSize; i >= 1; i--) {
-            data[i] = i;
+        for (int i = 0; i < arrayReturnSize; i++) {
+            data[i] = arrayReturnSize - i;
         }
         return data;
     }
