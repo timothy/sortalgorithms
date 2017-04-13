@@ -5,6 +5,7 @@
  */
 package sortalgorithms;
 
+//import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,6 +14,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class SortAlgorithms {
 
+    /**
+     * This formates output for algorithm times
+     * @param title - Introduction of information to be displayed
+     * @param stop the time when the algorithm is completed
+     * @param start the time when the algorithm started.
+     */
     public static void timeOutPut(String title, long stop, long start) {
         long totalMil = (stop - start);
         System.out.println(title + " - In Nano Seconds:" + totalMil + " - In MilliSeconds:" + TimeUnit.NANOSECONDS.toMillis(totalMil) + " - In Seconds:" + TimeUnit.NANOSECONDS.toSeconds(totalMil));
@@ -40,7 +47,7 @@ public class SortAlgorithms {
         int[] mergeS = Evaluator.genSequential();
 
         System.arraycopy(randomArray, 0, selectR, 0, mergeR.length);
-        System.arraycopy(randomArray, 0, insertR, 0, mergeR.length);
+        System.arraycopy(randomArray, 0, insertR, 0, insertR.length);
         System.arraycopy(randomArray, 0, mergeR, 0, mergeR.length);
 
         /**
@@ -57,14 +64,15 @@ public class SortAlgorithms {
         long selectionStartTimeDesc = System.nanoTime();
         Evaluator.selectionSortBradford(selectDS);// Descending Sequential Array
         long selectionEndTimeDesc = System.nanoTime();
-
+        
         /**
          * Insert Sort - sort and time using all three arrays
          */
         long insertionStartTimeRand = System.nanoTime();
         Evaluator.insertionSortBradford(insertR);//Random Array
         long insertionEndTimeRand = System.nanoTime();
-
+        //System.out.println(Arrays.toString(insertR));//just making sure it is in order...
+        
         long insertionStartTimeSeq = System.nanoTime();
         Evaluator.insertionSortBradford(insertS);//Sequential Array
         long insertionEndTimeSeq = System.nanoTime();
@@ -72,7 +80,8 @@ public class SortAlgorithms {
         long insertionStartTimeDesc = System.nanoTime();
         Evaluator.insertionSortBradford(insertDS);// Descending Sequential Array
         long insertionEndTimeDesc = System.nanoTime();
-
+//        System.out.println(Arrays.toString(insertDS));//just making sure it is in order...
+        
         /**
          * Merge Sort - sort and time using all three arrays
          */
@@ -87,23 +96,26 @@ public class SortAlgorithms {
         long mergeStartTimeDesc = System.nanoTime();
         Evaluator.mergeSortBradford(mergeDS);// Descending Sequential Array
         long mergeEndTimeDesc = System.nanoTime();
-
-        System.out.println("*********************Selection*Sort*********************************************");
+        
+        /**
+         * Console output
+         */
+        System.out.println("**********************************Selection*Sort*********************************************");
         timeOutPut("Total Time for Random Array:", selectionEndTimeRand, selectionStartTimeRand);
-        timeOutPut("Total Time for Random Array:", selectionEndTimeSeq, selectionStartTimeSeq);
-        timeOutPut("Total Time for Random Array:", selectionEndTimeDesc, selectionStartTimeDesc);
+        timeOutPut("Total Time for Sequential Array:", selectionEndTimeSeq, selectionStartTimeSeq);
+        timeOutPut("Total Time for Descending Sequential Array:", selectionEndTimeDesc, selectionStartTimeDesc);
         System.out.println("*****************************************************************************************\n");
-
-        System.out.println("*********************************Insertion*Sort*********************************************");
+        
+        System.out.println("**********************************Insertion*Sort*********************************************");
         timeOutPut("Total Time for Random Array:", insertionEndTimeRand, insertionStartTimeRand);
-        timeOutPut("Total Time for Random Array:", insertionEndTimeSeq, insertionStartTimeSeq);
-        timeOutPut("Total Time for Random Array:", insertionEndTimeDesc, insertionStartTimeDesc);
+        timeOutPut("Total Time for Sequential Array:", insertionEndTimeSeq, insertionStartTimeSeq);
+        timeOutPut("Total Time for Descending Sequential Array:", insertionEndTimeDesc, insertionStartTimeDesc);
         System.out.println("*****************************************************************************************\n");
 
-        System.out.println("*********************************Merge*Sort*********************************************");
+        System.out.println("************************************Merge*Sort*********************************************");
         timeOutPut("Total Time for Random Array:", mergeEndTimeRand, mergeStartTimeRand);
-        timeOutPut("Total Time for Random Array:", mergeEndTimeSeq, mergeStartTimeSeq);
-        timeOutPut("Total Time for Random Array:", mergeEndTimeDesc, mergeStartTimeDesc);
+        timeOutPut("Total Time for Sequential Array:", mergeEndTimeSeq, mergeStartTimeSeq);
+        timeOutPut("Total Time for Descending Sequential Array:", mergeEndTimeDesc, mergeStartTimeDesc);
         System.out.println("*****************************************************************************************");
     }
 
