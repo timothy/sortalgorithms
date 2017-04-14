@@ -16,13 +16,13 @@ public class Evaluator {
     /**
      * this is the size each return array will be
      */
-    public static final int arrayReturnSize = 100000;
+    public int arrayReturnSize = 100000;
 
     /**
      * a method that sorts using the Selection sort algorithm
      * @param data the array to be sorted
      */
-    public static void selectionSortBradford(int[] data) {
+    public void selectionSortBradford(int[] data) {
         int smallest;
         for (int i = 0; i < data.length - 1; i++) {
             smallest = i;
@@ -40,7 +40,7 @@ public class Evaluator {
      * a method that sorts using the Insertion sort algorithm
      * @param data the array to be sorted
      */
-    public static void insertionSortBradford(int[] data) {
+    public void insertionSortBradford(int[] data) {
         int insert;
         int moveItem;
 
@@ -60,7 +60,7 @@ public class Evaluator {
      * a method that sorts using the Merge sort algorithm
      * @param data the array to be sorted
      */
-    public static void mergeSortBradford(int[] data) {
+    public void mergeSortBradford(int[] data) {
         sortArrayBradford(data, 0, data.length - 1);
     }
 
@@ -70,7 +70,7 @@ public class Evaluator {
      * @param low low end of array
      * @param high high end of array
      */
-    public static void sortArrayBradford(int[] data, int low, int high) {
+    public void sortArrayBradford(int[] data, int low, int high) {
 
         if ((high - low) >= 1) {
             int middle1 = (low + high) / 2;
@@ -94,7 +94,7 @@ public class Evaluator {
      * @param middle2 middle for array 2
      * @param right right side of array
      */
-    public static void mergeBradford(int[] data, int left, int middle1, int middle2, int right) {
+    public void mergeBradford(int[] data, int left, int middle1, int middle2, int right) {
         int leftIndex = left;// index into left subarray 
         int rightIndex = middle2;// index into right subarray 
         int combinedIndex = left;// index into temporary working array 
@@ -135,7 +135,7 @@ public class Evaluator {
      * @param first the first position to be swapped
      * @param second the second position to be swapped
      */
-    public static void swap(int[] data, int first, int second) {
+    public void swap(int[] data, int first, int second) {
         int temp = data[first];
         data[first] = data[second];
         data[second] = temp;
@@ -145,8 +145,8 @@ public class Evaluator {
      * @return an array with 100,000 int values in sequential order, starting
      * with 1 and ending with 100,000.
      */
-    public static int[] genSequential() {
-        int[] data = new int[arrayReturnSize];// create array
+    public int[] genSequential() {
+        int[] data = new int[this.arrayReturnSize];// create array
 
         //populate array
         for (int i = 0; i < arrayReturnSize; i++) {
@@ -158,13 +158,13 @@ public class Evaluator {
     /**
      * @return an array with 100,000 random int values.
      */
-    public static int[] genRandom() {
+    public int[] genRandom() {
         SecureRandom generator = new SecureRandom();
-        int[] data = new int[arrayReturnSize];// create array
+        int[] data = new int[this.arrayReturnSize];// create array
 
         //populate array
-        for (int i = 0; i < arrayReturnSize; i++) {
-            data[i] = 1 + generator.nextInt(arrayReturnSize - 1);
+        for (int i = 0; i < this.arrayReturnSize; i++) {
+            data[i] = 1 + generator.nextInt(this.arrayReturnSize - 1);
         }
 
         return data;
@@ -174,7 +174,7 @@ public class Evaluator {
      * @return an array with 100,000 int values in descending sequential order,
      * starting with 100,000 and ending with 1.
      */
-    public static int[] genDescendingSequential() {
+    public int[] genDescendingSequential() {
         int[] data = new int[arrayReturnSize];// create array
         //populate array
         for (int i = 0; i < arrayReturnSize; i++) {
