@@ -9,6 +9,8 @@ package sortalgorithms;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * This will run each method in the Evaluator and give benchmarks to each
+ * sorting algorithm performed.
  *
  * @author Timothy Bradford
  */
@@ -52,8 +54,8 @@ public class SortAlgorithms {
         System.arraycopy(randomArray, 0, selectR, 0, mergeR.length);
         System.arraycopy(randomArray, 0, insertR, 0, insertR.length);
         System.arraycopy(randomArray, 0, mergeR, 0, mergeR.length);
-        
-         /**
+
+        /**
          * Merge Sort - sort and time using all three arrays
          */
         long mergeStartTimeRand = System.nanoTime();
@@ -99,8 +101,6 @@ public class SortAlgorithms {
         eval.insertionSortBradford(insertDS);// Descending Sequential Array
         long insertionEndTimeDesc = System.nanoTime();
 //        System.out.println(Arrays.toString(insertDS));//just making sure it is in order...
-
-
 
         /**
          * Console output

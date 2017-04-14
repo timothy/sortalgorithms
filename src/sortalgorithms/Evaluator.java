@@ -8,6 +8,8 @@ package sortalgorithms;
 import java.security.SecureRandom;
 
 /**
+ * This class contains multiple versions of sorting algorithms. The purpose of
+ * this is to measure the effectiveness of each algorithm.
  *
  * @author Timothy Bradford
  */
@@ -20,6 +22,7 @@ public class Evaluator {
 
     /**
      * a method that sorts using the Selection sort algorithm
+     *
      * @param data the array to be sorted
      */
     public void selectionSortBradford(int[] data) {
@@ -38,6 +41,7 @@ public class Evaluator {
 
     /**
      * a method that sorts using the Insertion sort algorithm
+     *
      * @param data the array to be sorted
      */
     public void insertionSortBradford(int[] data) {
@@ -58,6 +62,7 @@ public class Evaluator {
 
     /**
      * a method that sorts using the Merge sort algorithm
+     *
      * @param data the array to be sorted
      */
     public void mergeSortBradford(int[] data) {
@@ -66,6 +71,7 @@ public class Evaluator {
 
     /**
      * This is the recursive Merge sort algorithm
+     *
      * @param data the array to be sorted
      * @param low low end of array
      * @param high high end of array
@@ -88,6 +94,7 @@ public class Evaluator {
 
     /**
      * will merge the two arrays from the Merge sort method
+     *
      * @param data the array to be merged
      * @param left left side of array
      * @param middle1 middle for array 1
@@ -131,6 +138,7 @@ public class Evaluator {
 
     /**
      * this will swap positions in an array
+     *
      * @param data the array
      * @param first the first position to be swapped
      * @param second the second position to be swapped
